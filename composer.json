@@ -1,0 +1,35 @@
+{
+  "name": "shoplo/getresponse",
+  "type": "library",
+  "description": "GetResponse PHP Client",
+  "keywords": [
+    "shoplo",
+    "getresponse",
+    "inpost"
+  ],
+  "homepage": "https://github.com/Shoplo/getresponse",
+  "license": "MIT",
+  "require": {
+    "php": ">=7.2",
+    "jms/serializer": "^3.0"
+  },
+  "require-dev": {
+    "symfony/http-client": "^4.3"
+  },
+  "suggest": {
+    "symfony/http-client": "For HttpClientAdapter"
+  },
+  "autoload": {
+    "psr-4": {
+      "Shoplo\\GetResponse\\": "src/Shoplo/GetResponse"
+    },
+    "files": [
+      "autoload.php"
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.1.x-dev"
+    }
+  }
+}
