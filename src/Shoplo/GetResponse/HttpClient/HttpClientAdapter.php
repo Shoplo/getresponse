@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shoplo\GetResponse\HttpClient;
 
 use Shoplo\GetResponse\GetResponseAdapterInterface;
@@ -27,7 +29,7 @@ class HttpClientAdapter implements GetResponseAdapterInterface
     /**
      * @param null $accessToken
      */
-    public function setAccessToken($accessToken)
+    public function setAccessToken(string $accessToken): void
     {
         $this->accessToken = $accessToken;
     }
@@ -37,8 +39,7 @@ class HttpClientAdapter implements GetResponseAdapterInterface
         return !$this->accessToken
             ? []
             : [
-                'X-Auth-Token' => "api-key {$this->accessToken}",
-//                'Content-Type'  => 'application/json; charset=utf-8',
+                'X-Auth-Token' => "api-key {$this->accessToken}"
             ];
     }
 
@@ -48,20 +49,6 @@ class HttpClientAdapter implements GetResponseAdapterInterface
             $response = $this->httpClient->request('GET', $url, [
                 'headers' => array_merge($headers, $this->getHeaders()),
                 'query' => $parameters,
-            ]);
-
-            return $response->getContent();
-        } catch (\Throwable $e) {
-            ExceptionManager::throwException($e);
-        }
-    }
-
-    public function put($url, $data, $headers = [])
-    {
-        try {
-            $response = $this->httpClient->request('PUT', $url, [
-                'headers' => array_merge($headers, $this->getHeaders()),
-                'body' => $data,
             ]);
 
             return $response->getContent();

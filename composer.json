@@ -22,9 +22,6 @@
   "autoload": {
     "psr-4": {
       "Shoplo\\GetResponse\\": "src/Shoplo/GetResponse"
-    },
-    "files": [
-      "autoload.php"
-    ]
+    }
   }
 }

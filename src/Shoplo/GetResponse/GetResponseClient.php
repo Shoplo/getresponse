@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shoplo\GetResponse;
 
 use Symfony\Component\Serializer\Serializer;
@@ -26,7 +28,7 @@ class GetResponseClient
         $this->serializer     = $serializer;
     }
 
-    public function get($type, $url, array $parameters = [], array $headers = [])
+    public function get(string $type, string $url, array $parameters = [], array $headers = [])
     {
         $response = $this->requestAdapter->get(
             $url,
@@ -44,17 +46,12 @@ class GetResponseClient
         return $this->serializer->deserialize($response, $type, 'json');
     }
 
-    public function post($url, $data, array $headers = [])
+    public function post(string $url, $data, array $headers = [])
     {
         return $this->requestAdapter->post($url, $this->serializer->serialize($data, 'json'), $headers);
     }
 
-    public function put($url, $data, array $headers = [])
-    {
-        return $this->requestAdapter->put($url, $data, $headers);
-    }
-
-    public function delete($url)
+    public function delete(string $url)
     {
         return $this->requestAdapter->delete($url);
     }

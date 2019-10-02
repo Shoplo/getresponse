@@ -1,7 +1,8 @@
 <?php
 
-namespace Shoplo\GetResponse\Model\Contact\Request;
+declare(strict_types=1);
 
+namespace Shoplo\GetResponse\Model\Contact\Request;
 
 class ContactRequest
 {

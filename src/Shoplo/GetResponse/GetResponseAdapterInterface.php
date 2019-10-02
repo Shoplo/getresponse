@@ -1,16 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shoplo\GetResponse;
 
 interface GetResponseAdapterInterface
 {
-    public function get($url, $parameters = [], $headers = []);
+    public function get(string $url, array $parameters = [], array $headers = []);
 
-    public function post($url, $data, $headers = []);
+    public function post(string $url, $data, array $headers = []);
 
-    public function put($url, $data, $headers = []);
+    public function delete(string $url);
 
-    public function delete($url);
-
-    public function setAccessToken($accessToken);
+    public function setAccessToken(string $accessToken);
 }

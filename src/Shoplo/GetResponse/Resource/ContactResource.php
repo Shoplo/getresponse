@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shoplo\GetResponse\Resource;
 
 use Shoplo\GetResponse\GetResponseClient;
 use Shoplo\GetResponse\Model\Contact\Request\ContactRequest;
+use Shoplo\GetResponse\Model\Contact\Request\ContactResponse;
 
 class ContactResource
 {
@@ -19,7 +22,7 @@ class ContactResource
         $this->getResponseClient = $GetResponseClient;
     }
 
-    private function getContactsUrl($id = null)
+    private function getContactsUrl($id = null): string
     {
         if (null !== $id) {
             return sprintf('contacts/%s', $id);
@@ -27,7 +30,7 @@ class ContactResource
         return 'contacts';
     }
 
-    public function createContact(ContactRequest $request)
+    public function createContact(ContactRequest $request): string
     {
         return $this->getResponseClient->post(
             $this->getContactsUrl(),
@@ -35,7 +38,7 @@ class ContactResource
         );
     }
 
-    public function updateContact($id, ContactRequest $request)
+    public function updateContact($id, ContactRequest $request): ContactResponse
     {
         return $this->getResponseClient->post(
             $this->getContactsUrl($id),
@@ -43,7 +46,7 @@ class ContactResource
         );
     }
 
-    public function deleteContact($id)
+    public function deleteContact($id): string
     {
         return $this->getResponseClient->delete(
             $this->getContactsUrl($id)

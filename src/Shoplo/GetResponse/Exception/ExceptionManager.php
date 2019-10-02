@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shoplo\GetResponse\Exception;
 
 use Symfony\Contracts\HttpClient\ResponseInterface;

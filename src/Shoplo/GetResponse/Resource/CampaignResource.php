@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shoplo\GetResponse\Resource;
 
 use Shoplo\GetResponse\GetResponseClient;
@@ -25,12 +27,12 @@ class CampaignResource
         return 'campaigns';
     }
 
-    private function findCampaignContactUrl($campaignId)
+    private function findCampaignContactUrl($campaignId): string
     {
         return sprintf('campaigns/%s/contacts', $campaignId);
     }
 
-    public function getCampaignsList()
+    public function getCampaignsList(): CampaignCollectionResponse
     {
         return $this->getResponseClient->get(
             CampaignCollectionResponse::class,
@@ -38,7 +40,7 @@ class CampaignResource
         );
     }
 
-    public function findContact($campaignId, $email)
+    public function findContact($campaignId, $email): ContactCollectionResponse
     {
         return $this->getResponseClient->get(
             ContactCollectionResponse::class,
