@@ -4,14 +4,14 @@
   "description": "GetResponse PHP Client",
   "keywords": [
     "shoplo",
-    "getresponse",
-    "inpost"
+    "getresponse"
   ],
   "homepage": "https://github.com/Shoplo/getresponse",
   "license": "MIT",
   "require": {
     "php": ">=7.2",
-    "jms/serializer": "^3.0"
+    "symfony/serializer": "^4.3",
+    "symfony/property-access": "^4.3"
   },
   "require-dev": {
     "symfony/http-client": "^4.3"

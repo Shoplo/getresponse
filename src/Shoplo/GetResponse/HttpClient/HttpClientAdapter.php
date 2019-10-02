@@ -37,8 +37,8 @@ class HttpClientAdapter implements GetResponseAdapterInterface
         return !$this->accessToken
             ? []
             : [
-                'Authorization' => "Bearer {$this->accessToken}",
-                'Content-Type'  => 'application/json; charset=utf-8',
+                'X-Auth-Token' => "api-key {$this->accessToken}",
+//                'Content-Type'  => 'application/json; charset=utf-8',
             ];
     }
 

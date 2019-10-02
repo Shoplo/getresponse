@@ -2,11 +2,11 @@
 
 namespace Shoplo\GetResponse;
 
-use JMS\Serializer\Serializer;
+use Symfony\Component\Serializer\Serializer;
 
 class GetResponseClient
 {
-    const API_BASE_URI = '';
+    const API_BASE_URI = 'https://api.getresponse.com/v3/';
     const API_SANDBOX_BASE_URI = '';
 
     /** @var GetResponseAdapterInterface */
@@ -15,11 +15,8 @@ class GetResponseClient
     /** @var Serializer */
     public $serializer;
 
-    /** @var string */
-    public $organizationId;
-
     /**
-     * ShipXClient constructor.
+     * GetResponseClient constructor.
      * @param GetResponseAdapterInterface $requestAdapter
      * @param Serializer $serializer
      */
@@ -36,13 +33,20 @@ class GetResponseClient
             $parameters,
             $headers
         );
+        $implements = class_implements($type);
+
+        if (isset($implements['IteratorAggregate'])) {
+            $response = json_decode($response, true);
+            $response['items'] = $response;
+            $response = json_encode($response);
+        }
 
         return $this->serializer->deserialize($response, $type, 'json');
     }
 
     public function post($url, $data, array $headers = [])
     {
-        return $this->requestAdapter->post($url, $data, $headers);
+        return $this->requestAdapter->post($url, $this->serializer->serialize($data, 'json'), $headers);
     }
 
     public function put($url, $data, array $headers = [])

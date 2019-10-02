@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: adrianadamiec
- * Date: 12.05.2017
- * Time: 15:06
- */
 
 namespace Shoplo\GetResponse\Exception;
 
@@ -18,9 +12,9 @@ class BaseException extends \Exception
         $msg  = $previous->getMessage();
 
         if (null !== $body) {
-            $code = $body['status'];
+            $code = $body['httpStatus'];
             $msg  = $body['message'];
-            $body = $body['details'];
+            $body = $body['context'];
         }
         $this->responseParsed = serialize($body);
         parent::__construct(
