@@ -6,7 +6,7 @@ namespace Shoplo\GetResponse\Resource;
 
 use Shoplo\GetResponse\GetResponseClient;
 use Shoplo\GetResponse\Model\Contact\Request\ContactRequest;
-use Shoplo\GetResponse\Model\Contact\Request\ContactResponse;
+use Shoplo\GetResponse\Model\Contact\Response\ContactResponse;
 
 class ContactResource
 {
