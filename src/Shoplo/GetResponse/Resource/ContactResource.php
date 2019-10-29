@@ -38,7 +38,7 @@ class ContactResource
         );
     }
 
-    public function updateContact($id, ContactRequest $request): ContactResponse
+    public function updateContact($id, ContactRequest $request): string
     {
         return $this->getResponseClient->post(
             $this->getContactsUrl($id),
