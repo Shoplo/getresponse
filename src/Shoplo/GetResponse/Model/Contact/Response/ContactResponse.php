@@ -39,7 +39,7 @@ class ContactResponse
     public $dayOfCycle;
 
     /**
-     * @var string
+     * @var string|null
      */
     public $note;
 }
