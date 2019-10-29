@@ -27,7 +27,7 @@ class CampaignResponse
     public $languageCode;
 
     /**
-     * @var boolean
+     * @var string
      */
     public $isDefault;
 
