@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Shoplo\GetResponse\Model\Callback\Response;
 
-use Shoplo\GetResponse\Model\Callback\Request\CallbackActionsResponse;
-
 class CallbackResponse
 {
     /**
