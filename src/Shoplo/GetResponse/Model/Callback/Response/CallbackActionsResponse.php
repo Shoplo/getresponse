@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Shoplo\GetResponse\Model\Callback\Request;
+namespace Shoplo\GetResponse\Model\Callback\Response;
 
 class CallbackActionsResponse
 {
