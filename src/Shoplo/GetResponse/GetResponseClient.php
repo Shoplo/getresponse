@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Shoplo\GetResponse;
 
-use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class GetResponseClient
 {
@@ -14,15 +14,15 @@ class GetResponseClient
     /** @var GetResponseAdapterInterface */
     public $requestAdapter;
 
-    /** @var Serializer */
+    /** @var SerializerInterface */
     public $serializer;
 
     /**
      * GetResponseClient constructor.
      * @param GetResponseAdapterInterface $requestAdapter
-     * @param Serializer $serializer
+     * @param SerializerInterface $serializer
      */
-    public function __construct(GetResponseAdapterInterface $requestAdapter, Serializer $serializer)
+    public function __construct(GetResponseAdapterInterface $requestAdapter, SerializerInterface $serializer)
     {
         $this->requestAdapter = $requestAdapter;
         $this->serializer     = $serializer;
